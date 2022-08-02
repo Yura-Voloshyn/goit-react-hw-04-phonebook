@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 const Filter = ({ value, onChange }) => (
   <Label>
@@ -5,7 +6,10 @@ const Filter = ({ value, onChange }) => (
     <input type="text" value={value} onChange={onChange} />
   </Label>
 );
-
+Filter.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 export default Filter;
 
 const Label = styled.label`

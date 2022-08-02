@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Component } from 'react';
 import styled from '@emotion/styled';
 
@@ -58,15 +59,27 @@ class ContactInputSection extends Component {
     );
   }
 }
+ContactInputSection.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
 export default ContactInputSection;
 
+const Section = styled.section`
+  margin: 20px auto;
+  padding: 10px;
+  text-align: center;
+  width: 300px;
+  border: 2px solid orange;
+`;
 const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 10px;
+
   & label {
     max-width: 200px;
     margin-left: auto;
+    margin-right: auto;
   }
   & button {
     max-width: 120px;
@@ -74,8 +87,4 @@ const Form = styled.form`
     margin-left: auto;
     margin-right: auto;
   }
-`;
-
-const Section = styled.section`
-  text-align: center;
 `;

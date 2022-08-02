@@ -42,18 +42,27 @@ class App extends Component {
       contact.name.toLowerCase().includes(normalizedFilter)
     );
   };
+  // countContacts = () => {
+  //   this.state.contacts.length;
+  // };
+
   render() {
+    const totalContacts = this.state.contacts.length;
     const { filter } = this.state;
     const visibleContacts = this.getVisibleContacts();
     return (
       <MainContainer>
         <ContactInputSection onSubmit={this.handleFormSubmit} />
-        <ContactListSection
-          contacts={visibleContacts}
-          onDeleteContact={this.deleteContact}
-          value={filter}
-          onChange={this.changeFilter}
-        />
+        {!totalContacts ? (
+          <p>Add contact to your phonebook</p>
+        ) : (
+          <ContactListSection
+            contacts={visibleContacts}
+            onDeleteContact={this.deleteContact}
+            value={filter}
+            onChange={this.changeFilter}
+          />
+        )}
       </MainContainer>
     );
   }
