@@ -45,7 +45,19 @@ class App extends Component {
   // countContacts = () => {
   //   this.state.contacts.length;
   // };
-
+  componentDidMount() {
+    const contacts = localStorage.getItem('contacts');
+    const parsedContacts = JSON.parse(contacts);
+    if (parsedContacts) {
+      this.setState({ contacts: parsedContacts });
+    }
+  }
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.contacts !== prevState.contacts) {
+      console.log('contacts update');
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
+  }
   render() {
     const totalContacts = this.state.contacts.length;
     const { filter } = this.state;
