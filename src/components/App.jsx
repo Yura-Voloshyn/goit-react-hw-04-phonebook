@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import { MainContainer } from './App.styled';
 import { nanoid } from 'nanoid';
 import ContactInputSection from './ContactInput';
